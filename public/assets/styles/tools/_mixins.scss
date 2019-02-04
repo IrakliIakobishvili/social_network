@@ -1,0 +1,61 @@
+@mixin el($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin mod($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+@mixin hover() {
+    &:hover {
+        @content;
+    }
+}
+
+@mixin border($left,$top,$right,$bottom,$type,$color) {
+    border-left:   $left $type $color;
+    border-top:    $top $type $color;
+    border-right:  $right $type $color; 
+    border-bottom: $bottom $type $color;
+}
+
+@mixin transition($property: all, $duration: .3s, $ease: linear){
+	-webkit-transition: $property $duration $ease;
+	-moz-transition: $property $duration $ease;
+	-o-transition: $property $duration $ease;
+	transition: $property $duration $ease;
+}
+
+@mixin box-sizing($value) {
+    box-sizing: $value;
+    -webkit-box-sizing: $value;
+    -moz-box-sizing: $value;
+}
+
+@mixin border-radius($radius:50%) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+}
+
+@mixin pseudo($selector) {
+    &:#{$selector} {
+        @content;
+    }
+}
+
+@mixin background-image($imgpath,$position:0 0,$repeat: no-repeat) {
+     @if $imgpath != "" {
+        background: {
+            image: url($imgpath);
+            position: $position;
+            repeat: $repeat;
+        }
+      }@else {
+           background-position: $position;
+      }
+}

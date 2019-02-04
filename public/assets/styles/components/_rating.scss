@@ -1,0 +1,24 @@
+.main-content__aside-right__rating {
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.9375em 0.9375em;
+    margin-bottom: 0.75em;
+    border: 1px solid $main-contents-border-color;
+    display: flex;
+    align-items: center;
+    @include background-image('../images/icon-sprites.png',10px -992px);
+
+    &-title {
+        text-transform: capitalize;
+        font-family: 'SF UI Text Semibold';
+        font-size: $header-item-font-size;
+        margin-left: 40px;
+        padding: 0.35rem 0;
+    }
+
+    & i {
+        color: #8f939c;
+        font-size: 1.5rem;
+    }
+}

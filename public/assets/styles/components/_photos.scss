@@ -1,0 +1,144 @@
+.main-content__photos {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccd0d5;
+    margin-top: 12px;
+    border-radius: 4px;
+
+    @include el(header) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+
+        &-left {
+            display: flex;
+
+            & i {
+                color: #999;
+            }
+        }
+
+        @include el(title) {
+            font-size: 1rem;
+            color: #4b4f56;
+            margin-left: 0.625em;
+            font-family: 'SF UI Text Medium';
+        }
+
+        @include el(button) {
+            border-radius: 2px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: $btn-font-size;
+            line-height: $section-title-font-size;
+            text-align: center;
+            white-space: nowrap;
+            border: none;
+            text-transform: capitalize;
+            border: 1px solid $main-contents-border-color;
+            padding: 0.3em 0.5em;
+            color: #4b4f56;
+            background-color: #f5f6f7;
+            font-family: 'SF UI Text Medium';
+
+            &:hover {
+                background-color: #ebedf0;
+            }
+        }
+    }
+
+    @include el(body) {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 200px;
+        border-top: 1px solid #ccd0d5;
+        padding-top: 5px;
+    }
+
+    @include el(list) {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 5.2px;
+    }
+
+    @include el(item) {
+        background: gray;
+        height: 200px;
+        width: 200px;
+        margin-bottom: 5.2px;
+        margin-right: 5.2px;
+        overflow: hidden;
+        position: relative;
+        @include el(btn-cont) {
+            position: absolute;
+            width: 100%;
+            height: 46px;
+            background: rgba(0,0,0,0.7);
+            top: 0px;
+            opacity: 0;
+            transition-duration: 1s;
+            &:hover {
+                opacity: 1;
+            }
+            @include el(btn) {
+                position: absolute;
+                top: 12px;
+                font-size: 0.7rem;
+                color: #BABABA;
+                border: 1px solid #BABABA;
+                border-radius: 3px;
+                padding: 0px;
+                padding: 4px 8px;
+                &:hover {
+                    background-color: #BABABA;
+                    color: black;
+                }
+                @include mod(profile) {
+                    left: 10px;
+                }
+                @include mod(cover) {
+                    right: 10px;
+                }
+                @include mod(delete) {
+                    padding: 2px 4px;
+                    top: 9px;
+                    left: 6px;
+                }
+            }
+            @include mod(bottom) {
+                top: auto;
+                bottom: 0px;
+                position: absolute;
+                height: 35px;
+            }
+        }
+        @include el(img) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    @include el(header-right) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include el(form) {
+            position: absolute;
+            @include el(input) {
+                opacity: 0;
+                position: absolute;
+                visibility: hidden;
+            }
+        }
+        @include el(output) {
+            font-size: 14px;
+            color: #737373;
+            margin-right: 10px;
+            .spinner--upload-image {
+                animation: spin 2000ms linear infinite;
+                display: none;
+            }
+        }
+    }
+}

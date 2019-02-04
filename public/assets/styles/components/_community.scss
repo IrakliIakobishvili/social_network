@@ -1,0 +1,47 @@
+.main-content__community {
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.75em 0.9375em;
+    padding-bottom: 0.1875em;
+    border: 1px solid $main-contents-border-color;
+    font-family: 'SF UI Text Semibold';
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5625em;
+
+        @include el(title) {
+            font-family: 'SF UI Text Bold';
+            font-size: 1rem;
+        }
+
+        @include el(link) {
+            text-decoration: none;
+            color: $primary-color;
+            font-size: $primary-text-size;
+            font-family: 'SF UI Text Medium';
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &-item {
+        font-size: $subtitle-font-size;
+        padding: 0.72em 0;
+        color: #1d2129;
+
+        & i {
+            display: inline-block;
+            width: 16px;
+            height: 12px;
+            margin-right: 0.96em;
+            color: #8f939c;
+        }
+
+        @include el(totals) {
+            margin-right: 0.4em;
+        }
+    }
+}

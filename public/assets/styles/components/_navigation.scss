@@ -1,0 +1,62 @@
+.left-nav {
+    width: $left-nav-width;
+    margin-top: 12px;
+    position: fixed;
+    @include el(img-cont) {
+        width: 100%;
+        height: $left-nav-width;
+        background: $primary-color;
+        overflow: hidden;
+        @include el(img) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    @include el(full-name) {
+        font-size: 1.25rem;
+        font-family: 'SF UI Text Medium';
+        color: #000;
+        margin: 0.9em 0;
+        line-height: 1.3em;
+        @include el(first-name) {
+            display: block;
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+        @include el(last-name) {
+            display: block;
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+    @include el(list) {
+        @include el(item) {
+            @include el(btn) {
+                background: transparent;
+                font-size: $alternate-text-size;
+                color: $home-font-color;
+                font-family: 'SF UI Text Medium';
+                text-transform: uppercase;
+                border: 1px solid transparent;
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 0.33em 0 0.33em 0.4em;
+                margin: 0.3em 0;
+                cursor: pointer;
+                &:hover {
+                    background: $left-nav-btns-background;
+                    border-color: $left-nav-btns-hover-bg
+                }
+                @include mod(active) {
+                    background: $left-nav-btns-background;
+                    border-color: $left-nav-btns-hover-bg;
+                    font-family: 'SF UI Text Bold';
+                }
+            } 
+        }
+    }
+}

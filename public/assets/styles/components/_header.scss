@@ -1,0 +1,333 @@
+.main-header {
+    width: 100%;
+    height: $logged-header-height;
+    background-color: $primary-color;
+    .container {
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+    }
+}
+.login-header {
+    width: 100%;
+    height: $header-height-login;
+    @include el(logo) {
+        color: #fff;
+        font-size: 2rem;
+        font-family: 'SF UI Text Bold';
+        cursor: pointer;
+    }
+    @include el(form) {
+        margin-top: 8px;
+        position: relative;
+        @include el(label) {
+            color: #fff;
+            font-size: $header-item-font-size;
+            margin-bottom: 0.5em;
+            display: block;
+        }
+        @include el(email) {
+            width: 150px;
+            height: 22px;
+            line-height: 22px;
+            border: 1px solid #1d2a5b;
+            font-size: $header-item-font-size;
+            padding: 0 0.2em;
+            margin-right: 1em;
+        }
+        @include el(password) {
+            @extend .login-header__form__email;
+        }
+        @include el(submit) {
+            font-size: $header-item-font-size; 
+            border: 1px solid #3a509f;
+            height: 22px;
+            background-color: lighten($primary-color, 7%);
+            padding: 0 0.5em;
+            color: #fff;
+            font-family: 'SF UI Text Medium';
+            cursor: pointer;
+            &:hover {
+                background-color: lighten($primary-color, 4%);
+            }
+        }
+        @include el(recover-link) {
+            display: inline-block;
+            text-decoration: none;
+            color: #9cb4d8;
+            font-size: $link-font-size;
+            padding: 0;
+            margin-top: 0.45em;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;               
+            }
+        }
+        @include el(result-info) {
+            position: absolute;
+            background-color: #be4b49;
+            box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
+            color: #fff;
+            border-radius: 2px;
+            font-size: 13px;
+            max-width: 300px;
+            padding: 8px;
+            top: 14px;
+            right: 400px;
+            white-space: nowrap;
+            display: none;
+            &:after {
+                content: "";
+                display: block;
+                right: -10px;
+                position: absolute;
+                width: 10px;
+                height: 15px;
+                background-repeat: no-repeat;
+                background-size: 30px;
+                @include background-image('../images/arrows.png',-8px -9px);
+                top: 0px;
+                bottom: 0px;
+                margin: auto;                
+            }
+        }
+    }
+}
+
+.home-header {
+    width: calc(100% - #{$distance-from-friends});
+    @include el(left-list) {
+            display: flex;
+            align-items: center;
+        @include el(item) {
+            position: relative;
+            .result-box-list {                
+                @include el(heading) {
+                    background: #F5F6F7;
+                    color: rgb(145, 144, 144);;
+                    padding: 0.8em;
+                    text-transform: uppercase;
+                    font-family: 'SF UI Text Semibold';
+                    font-size: $link-font-size;
+                }
+            }
+        }
+    }
+    @include el(right-list) {
+        display: flex;
+        align-items: center;
+        .top-nav-list__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            height: 30px;
+            &:hover {                
+                border-radius: 2px;
+                cursor: pointer;
+            }
+            @include mod(name) {
+                &:hover {
+                    background-color: $topNav-btns-hover-color;
+                }
+            }
+            @include mod(home) {
+                &:hover {
+                    background-color: $topNav-btns-hover-color;
+                }
+            }
+            @include mod(find-friends) {
+                &:hover {
+                    background-color: $topNav-btns-hover-color;
+                }
+            }
+            @include mod(friends-requests) {
+                &:hover i {
+                    color: $topNav-icons-hover-color;
+                }
+            }
+            @include mod(messanger) {
+                &:hover i {
+                    color: $topNav-icons-hover-color;
+                }
+            }
+            @include mod(notifications) {
+                &:hover i {
+                    color: $topNav-icons-hover-color;
+                }
+            }
+            @include mod(help) {
+                &:hover i {
+                    color: $topNav-icons-hover-color;
+                }
+            }
+            @include mod(dropdown) {
+                &:hover i {
+                    color: $topNav-icons-hover-color;
+                }
+            }
+            @include el(btn) {
+                background: transparent;
+                border: 0;
+                color: #fff;
+                font-family: 'SF UI Text Semibold';
+                font-size: 0.81rem;
+                padding: 0 0.625em;
+                cursor: pointer;
+                text-transform:capitalize;
+                @include mod(home-btn) {border-left: 1px solid $topNav-btns-border-color;}
+                @include mod(help-btn) {border-left: 1px solid $topNav-btns-border-color;}
+                @include mod(find-friends-btn) {
+                    border-left: 1px solid $topNav-btns-border-color;
+                    border-right: 1px solid $topNav-btns-border-color;
+                }
+                i {
+                    font-size: 1.25rem;
+                    color: $topNav-icons-color;
+                }
+                @include mod(messanger-btn) {
+                    i {
+                        font-size: 1.45rem;
+                    }
+                }
+            }
+            @include el(image-cont) {
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                overflow: hidden;
+                @include el(image) {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .top-sub-list {
+            position: absolute;
+            background: #fff;
+            top: 46px;
+            right: 0px;
+            @include el(icon-up) {
+                position: absolute;
+                top: -13px;
+                color: white !important;                
+            }
+            @include mod(dropdown-list) {
+                display: none;
+                border: 1px solid rgba(0, 0, 0, .15);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+                width: 200px;
+                border-radius: 3px;
+                padding: 3px 0px;
+                .top-sub-list__item {
+                    cursor: default;
+                    @include el(btn) {
+                        color: #313742;
+                        font-size: $subtitle-font-size;
+                        width: calc(100% + 2px);
+                        line-height: 1.8em;
+                        text-align-last: left;
+                        padding-left: 30px;
+                        position: relative;
+                        left: -1px;
+                        &:hover {
+                            background-color: $primary-color;
+                            color: #fff;
+                        }
+                    }
+                    @include mod(border) {
+                        border-bottom: 1px solid #e9ebee;
+                        margin: 5px 7px 6px;
+                        padding-top: 1px;
+                    }
+                }                
+            }
+            i {
+                font-size: 20px;
+                right: 7px;
+            }
+        }  
+    }
+    @include el(logo) {
+        font-size: 1.72rem;
+        color: #fff;
+        margin-right: 0.5em;
+    }
+    @include el(search-box) {
+        display: flex;
+        border-radius: 3px;
+        overflow: hidden;
+        border: 1px solid #3b5998;
+        width: 450px;
+        @include el(input) {
+            height: 25px;
+            width: 100%;
+            padding-left: 0.4em;
+            font-size: $alternate-text-size;
+            &:focus + button {
+                background: #4080FF;
+            }
+            &:focus + button i {
+                color: #fff;
+            }
+        } 
+        @include el(btn) {
+            width: 45px;
+            border: none;
+            height: 25px;
+            cursor: pointer;
+            background: #f5f6f7;
+            color: #6f6f6f;
+            font-size: 14px;
+            &:hover {
+                background: #e2e4e4;
+            }
+        }
+    }
+    .result-box-list {
+        background: #fff;
+        position: absolute;
+        top: 27px;
+        box-sizing: border-box;
+        width: 448px;
+        left: 1px;
+        border: 1px solid #ccc;
+        border-color: rgba(0, 0, 0, .15);
+        border-radius: 2px;
+        box-shadow: 0 4px 6px 2px rgba(0, 0, 0, .10);
+        display: none;
+        @include el(item) {
+            display: flex;
+            align-items: center;
+            padding: 7px;
+            font-size: $alternate-text-size;
+            color: #1d2129;
+            &:hover {
+                background-color: #ECF0F7;
+                cursor: pointer;
+            }
+            @include el(img-cont) {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 7px;
+                @include el(img) {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            @include el(full-name) {
+                @include el(firstname) {
+                    text-transform: capitalize;
+                    margin-right: 5px;
+                }
+                @include el(lastname) {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}

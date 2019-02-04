@@ -1,0 +1,8 @@
+.main-section {
+    background: $primary-color-bg;
+    min-height: calc(100vh - #{$logged-header-height});
+    width: calc(100% - #{$distance-from-friends});
+    .container {
+        justify-content: space-between;
+    }
+}

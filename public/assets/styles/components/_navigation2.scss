@@ -1,0 +1,65 @@
+.left-navigation {
+    width: 180px;
+    margin-top: 13px;
+    position: fixed;
+    @include el(page-name) {
+        font-size: $page-name-font-size;
+        font-family: 'SF UI Text Bold';
+        color: #000;
+        margin-top: 0.96em;
+        margin-bottom: 0.201em;
+    }
+    @include el(hashtag) {
+        font-size: $primary-text-size;
+        color: #9da1a8;
+    }
+    @include el(list) {
+        margin-top: 0.9375em;
+        @include el(item) {
+            margin-left: -0.375em;
+            @include el(btn) {
+                font-size: $primary-text-size;
+                font-family: 'SF UI Text Light';
+                padding: 0.685871em;
+                display:block;
+                cursor: pointer;
+                color: $home-font-color;
+                border-radius: 3px;
+                border: 1px solid transparent;
+                background: transparent;
+                text-transform: capitalize;
+                &:hover {
+                    background: $left-nav-btns-background;
+                    border-color: $left-nav-btns-hover-bg;
+                }
+                @include mod(active) {
+                    background: $left-nav-btns-background;
+                    border-color: $left-nav-btns-hover-bg;
+                    font-family: 'SF UI Text Bold';
+                }
+            }
+        }
+    }
+
+    @include el(promotions) {
+        margin-top: 1.25em;
+        @include el(button) {
+            display: block;
+            font-size: $subtitle-font-size;
+            padding: 0.8em 1.28em 0.8em 0.8em;
+            background: $primary-color;
+            color: #fff;
+            border-radius: 3px;
+        }
+        @include el(link) {
+            font-size: $primary-text-size;
+            font-family: 'SF UI Text Light';
+            cursor: pointer;
+            display: block;
+            color: $home-font-color;
+            text-decoration: none;
+            text-transform: capitalize;
+            margin-top: 0.685em;
+        }
+    }
+}

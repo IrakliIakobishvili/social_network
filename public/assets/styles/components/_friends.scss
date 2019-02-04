@@ -1,0 +1,173 @@
+.friends {
+    width: 205px;
+    border-left: 1px solid $main-contents-border-color;
+    position: fixed;
+    right: 0px;
+    overflow: auto;
+    right: 0px;
+    overflow: auto;
+    top: 62px;
+    bottom: 0px;
+    background-color: $primary-color-bg;
+    z-index: 45;
+    @include el(list) {
+        width: 100%;
+        height: calc(100vh - 116px);
+        overflow: auto;
+        padding: 4px 0px;
+        @include el(item) {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            position: relative;
+            cursor: pointer;   
+            padding: 8px;
+            &:hover {
+                background-color: $left-nav-btns-hover-bg;
+            }
+            @include el(img-cont) {
+                border-radius: 50%;
+                margin-right: 8px;
+                overflow: hidden;
+                width: 32px;
+                height: 32px;
+                background-color: $primary-color;
+                @include el(img) {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            @include el(fullname) {
+                font-size: $btn-font-size;
+                color: #484848;
+                width: 110px;
+                overflow: hidden;
+                white-space: nowrap;
+                letter-spacing: -0.5px;
+                text-transform: capitalize;
+            }
+            @include el(status) {
+                position: absolute;
+                width: 15px;
+                height: 100%;
+                display: block;
+                margin-left: auto;
+                font-size: $link-font-size;
+                line-height: 25px;
+                text-align: center;
+                color: #a0a0a0;
+                right: 8px;
+                @include el(isOnline) {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: rgb(66, 183, 42);
+                    position: absolute;
+                    z-index: 1;
+                    display: block;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    top: 0px;
+                    margin: auto;
+                }
+                @include el(isOffline) {
+                    width: 6px;
+                    height: 6px;
+                    position: absolute;
+                    z-index: 1;
+                    display: block;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    top: 0px;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.1em;
+                    font-family: 'SF UI Text Medium';
+                    letter-spacing: -0.1;
+                }
+            }
+            @include el(hand) {
+                width: 23px;
+                height: 100%;
+                position: absolute;
+                right: 23px;
+                @include background-image('../images/icon-sprites.png',-8px -910px);
+                display: none;
+            }
+            &:hover .friends__list__item__hand {
+                display: block;
+            }
+        }
+    }
+    @include el(search) {
+        position: absolute;
+        width: 100%;
+        height: 35px;
+        background-color: #f5f6f7;
+        bottom: 0px;
+        @include el(input) {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+            height: 20px;
+            width: 120px;
+            @include background-image('../images/search.png',-19px -16px);
+            background-color: #f5f6f7;
+            padding-left: 29px;
+            font-size: $alternate-text-size;
+        }
+        @include el(btn) {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            bottom: 0px;
+            top: 0px;
+            margin: auto;
+            @include background-image('../images/search.png');
+            @include mod(options) {
+                right: 60px;
+                @include background-image('',-25px -55px);
+            }
+            @include mod(new-message) {
+                right: 35px;
+                @include background-image('',-25px -91px);
+            }
+            @include mod(create-group) {
+                right: 10px;
+                @include background-image('',-25px -128px);
+            }
+        }
+    }
+}
+
+/*--------- Custom Scrollbar ----------*/
+/* width */
+.friends__list::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+.friends__list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px transparent; 
+    border-radius: 16px;
+}
+.friends__list::-webkit-scrollbar-track:hover {
+	box-shadow: inset 0 0 5px rgb(139, 139, 139);
+}	
+ 
+/* Handle */
+.friends__list::-webkit-scrollbar-thumb {
+    background: #8C8D8F; 
+    border-radius: 10px;
+}
+.friends__list::-webkit-scrollbar-thumb:hover {
+    widows: 300px;
+}
+/*------ End Custom Scrollbar -------*/

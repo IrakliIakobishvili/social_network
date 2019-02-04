@@ -1,0 +1,14 @@
+.show-block {
+    display: block !important;
+}
+.show-flex {
+    display: flex !important;
+}
+
+/*--- Will not have any impact (removing from element) after clicking document ---*/
+.show {
+    display: block !important;
+}
+.opacity-1 {
+    opacity: 1;
+}

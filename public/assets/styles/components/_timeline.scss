@@ -1,0 +1,388 @@
+.timeline {
+    width: $timeline-width;
+    margin-top: 12px;
+    .add-post {
+        border: 1px solid $main-contents-border-color;
+        @include border-radius(4px);
+        padding: 0px 10px;
+        background-color: #ffffff;
+        position: relative;
+        margin-bottom: 12px;
+        @include el(top-list) {
+            font-size: $header-item-font-size;
+            padding: 0.69em 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $main-contents-border-color;
+            @include el(item) {
+                border-right: 1px solid $main-contents-border-color;
+                padding-left: 26px;
+                padding-right: 2px;
+                cursor: pointer;
+                @include background-image('../images/sprites.png');
+                @include mod(post) {
+                    @include background-image('',6px -1px);
+                    margin-left: -9px;
+                }
+                @include mod(live) {
+                    @include background-image('',6px -66px);
+                }
+                @include mod(event) {
+                    @include background-image('',6px -129px);
+                }
+                @include mod(offer) {
+                    @include background-image('',6px -189px);
+                }
+                @include mod(job) {
+                    @include background-image('',6px -251px);
+                }
+                button {
+                    font-family: 'SF UI Text Bold';
+                    color: $addPost-topBtn-color;
+                    position: relative;
+                    letter-spacing: -0.5px;
+                    &:first-child {
+                        color: $posts-btn-color;                        
+                    }
+                }
+                &:first-child {
+                    border-right: 0;
+                }
+                &:last-child {
+                    border-right: 0;
+                }
+                @include mod(active) {
+                    button::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        bottom: -15px;
+                        width: 10px;
+                        height: 10px;
+                        -webkit-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        border: 1px solid $main-contents-border-color;
+                        background-color: #fff;
+                        border-bottom: none;
+                        border-right: none;
+                    }
+                }
+            }
+        }
+        @include el(textarea) {
+            width: 100%;
+            resize: none;
+            padding: 10px 0px;
+            padding-left: 70px;
+            box-sizing: border-box;
+            border: none;
+            font-family: 'SF UI Text Medium';
+            font-size: 0.95rem;
+            position: relative;
+            min-height: 70px;
+            padding-top: 27px;
+            padding-bottom: 0px;
+            @include background-image('../images/dropdown.png',45px 29px);
+        }
+        @include el(img-cont) {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: 53px;
+            left: 10px;
+            background-color: $primary-color;
+            @include el(image) {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        @include el(bottom-list) {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ccd0d5;
+            font-size: $header-item-font-size;
+            padding: 0.69em 0;
+            @include el(item) {
+                @include background-image('../images/sprites.png');
+                background-color: $posts-downBtns-bg;
+                padding: 8px;
+                border-radius: 16px;
+                padding-left: 27px;
+                margin-right: 0.5em;
+                button {
+                    font-family: 'SF UI Text Bold';
+                    color: $posts-btn-color;
+                    letter-spacing: -0.5px;
+                }
+                @include mod(photo) {
+                    @include background-image('',7px -299px);
+                }
+                @include mod(feeling) {
+                    @include background-image('',7px -364px);
+                }
+                @include mod(checkin) {
+                    @include background-image('',8px -425px);
+                }
+                @include mod(dots) {
+                    background-image: none;
+                    position: relative;
+                    padding-left: 8px;
+                    button {
+                        position: relative;
+                        color: $posts-downBtns-bg;
+                        &::after {
+                            content: "...";
+                            font-weight: bold;
+                            position: absolute;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #9ca4b1;
+                            font-size: 1.56rem;
+                            top: -13px;
+                            left: 2px;
+                            letter-spacing: -1px;
+                        }
+                    }
+                }
+                &:hover {
+                    background-color: $posts-downBtns-bg-hover;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @include el(post-section) {
+        width: 100%;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid $main-contents-border-color;
+        margin-top: 0.75em;
+
+        @include el(header) {
+            display: flex;
+            align-items: center;
+            padding: 0.93em 1.125em;
+            @include el(img-container) {
+                height: 42px;
+                width: 42px;
+                @include el(img) {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+            @include el(info-container) {
+                margin: 0 0.5em;
+                @include el(page-name) {
+                    font-size: 1.02rem;
+                    color: $primary-color;
+                    font-family: 'SF UI Text Regular';
+                }
+                @include el(date) {
+                    font-size: 0.78rem;
+                    color: $posts-btn-color;
+                    font-family: 'SF UI Text Light';
+                }
+            }
+        }
+
+        @include el(content) {
+            @include el(text) {
+                font-size: $primary-text-size;
+                line-height: 1.234rem;
+                padding: 0 1.234567em;
+                margin-bottom: 1.71em;
+                font-family: 'SF UI Text Light';
+            }
+            @include el(hashtag) {
+                display: inline-block;
+                margin-left: 105px;
+                font-size: $primary-text-size;
+                color: #4267b2;
+                font-weight: 600;
+            }
+            @include el(photo) {
+                height: 268px;
+                width: 100%;
+                background: #273e6a;
+            }
+            @include el(link) {
+                display: block;
+                padding: 0.75em 1.125em;
+                background: #f2f3f5;
+                cursor: pointer;
+                border-bottom: 1px solid $main-contents-border-color;
+                @include el(name) {
+                    font-size: 0.82rem;
+                    font-family: 'SF UI Text Regular';
+                    text-transform: uppercase;
+                    color: $posts-btn-color;
+                }
+                @include el(description) {
+                    font-size: $primary-text-size;
+                    font-family: 'SF UI Text Medium';
+                    line-height: 1.1rem;
+                    margin-top: 0.5em;
+                }
+            }
+        }
+
+        @include el(footer) {
+            display: flex;
+            justify-content: center;
+            @include el(button) {
+                font-size: $primary-text-size;
+                font-family: 'SF UI Text Medium';
+                color: #85888f;
+                padding: 1em 2.88em;
+                display: flex;
+                align-items: center;
+                & i {
+                    font-size: 1.3rem;
+                    margin-right: 0.38em
+                }
+            }
+        }
+    }
+    .timeline__posts{
+        .post {
+            border: 1px solid #ccd0d5;
+            border-radius: 3px;
+            background-color: #fff;
+            margin-bottom: 12px;
+            @include el(header) {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 15px;
+                @include el(img-cont) {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    overflow: hidden;
+                    background-color: $primary-color;
+                    border-radius: 50%;
+                    @include el(img) {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                @include el(info-cont) {
+                    @include el(heading) {
+                        color: #0c53aa;
+                        text-transform: capitalize;
+                        font-family: 'SF UI Text Medium';
+                        font-size: 1rem;
+                        cursor: pointer;
+                        @include el(shared) {
+                            font-size: 0.8rem;
+                            color: #77777a;
+                            text-transform: lowercase;
+                            cursor: default;
+                            @include el(link) {
+                                color: #0c53aa;
+                                text-decoration: none;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                    @include el(date) {
+                        color: #77777a;
+                        font-size: 0.75rem;
+                        font-family: 'SF UI Text Medium';
+                    }
+                }
+                @include el(del-btn) {
+                    margin-left: auto;
+                    align-self: flex-start;
+                    font-size: 0.7rem;
+                    color: #4b4f56;
+                    cursor: pointer;
+                    padding: 0.4em 0.5em;
+                    background: #eaeaea;
+                    border-radius: 3px;
+                    &:hover {
+                        background-color: #e3e4e4;
+                    }
+                }
+            }
+            @include el(main) {
+                @include el(paragraph) {
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-family: 'SF UI Text Semibold';
+                    padding: 0px 15px;
+                    line-height: 1.2em;
+                }
+            }
+            @include el(footer) {
+                @include el(statistic) {
+                    border-bottom: 1px solid #ccd0d5;
+                    padding: 15px 0px;
+                    margin: 0 15px;
+                    font-size: 0.8rem;
+                    display: flex;
+                    justify-content: flex-end;
+                    @include el(likes) {
+                        margin-right: auto;
+                    }
+                    @include el(comments) {
+                        margin-right: 10px;
+                    }
+                }
+                @include el(list) {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 5px 0px;
+                    margin: 0 15px;
+                    @include el(item) {
+                        flex: 1;
+                        @include el(btn) {
+                            color: #7a7e85;
+                            font-size: 0.95rem;
+                            font-family: 'SF UI Text Semibold';
+                            width: 100%;
+                            text-align: center;
+                            height: 100%;
+                            line-height: 30px;
+                            padding-left: 25px;
+                            @include background-image('../images/btns-sprite.png');
+                            &:hover {
+                                background-color: #eeeef1;
+                            }
+                            @include mod(like) {
+                                @include background-image('../images/likeBtns.png');
+                                background-position: 45px -99px;
+                                background-size: 20px;
+                            } 
+                            @include mod(liked) {
+                                @include background-image('../images/likeBtns.png');
+                                background-position: 45px -30px;
+                                background-size: 20px;
+                                color: #4080ff;
+                            }
+                            @include mod(comment) {
+                                background-position: 17px -743px;
+                            } 
+                            @include mod(share) {
+                                background-position: 32px -780px;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

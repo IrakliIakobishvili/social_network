@@ -1,0 +1,48 @@
+.main-content__about {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccd0d5;
+    margin-top: 0.75em;
+    border-radius: 4px;
+    padding: 1em;
+
+    &-title {
+        font-size: $primary-text-size;
+        text-transform: uppercase;
+        color: #999;
+        font-family: 'SF UI Text Medium';
+        padding-bottom: 0.54869em;
+        border-bottom: 1px solid #ccc;
+    }
+
+    &-bottom {
+        margin-top: 3.75em;
+        margin-bottom: 0.625em;
+    }
+
+    @include el(item) {
+        font-size: $primary-text-size;
+        padding: 1.2345679em 0;
+        width: 100%;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    @include el(content) {
+        display: inline-block;
+        width: 250px;
+        text-transform: capitalize;
+
+        @include mod(property) {
+            color: #999;
+        }
+
+        @include el(link) {
+            text-decoration: none;
+            color: $primary-color;
+            text-transform: lowercase;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

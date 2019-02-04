@@ -1,0 +1,66 @@
+.page-footer {
+    padding: 1.25em 0;
+    background: #fff;
+    .container {
+        flex-direction: column;
+    }
+
+    @include el(languages) {
+        padding: 0.5em 0;
+        width: 100%;
+        border-bottom: 1px solid #dddfe2;
+        display: flex;
+    }
+
+    @include el(links) {
+        padding-top: 0.5em;
+    }
+
+    @include el(list) {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 1.25rem;
+    }
+
+    @include el(item) {
+        padding-right: 0.625em;
+        font-size: $header-item-font-size;
+
+        @include mod(gaps) {
+            padding-right: 1.5625em;
+        }
+    }
+
+    @include el(link) {
+        text-decoration: none;
+        color: #365899;
+        font-family: "SF UI Text Regular";
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @include el(button) {
+        display: block;
+        padding: 2px 8px;
+        height: 20px;
+        line-height: 16px;
+        background-color: #f5f6f7;
+        border-color: #ccd0d5;
+        color: #4b4f56;
+        border: 1px solid #ccd0d5;
+        border-radius: 2px;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            background: #ebedf0;
+        }
+    }
+
+    @include el(copyright) {
+        display: block;
+        font-size: $subtitle-font-size;
+        margin-top: 1.6em;
+        color: #737373;
+    }
+}

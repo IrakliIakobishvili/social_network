@@ -1,0 +1,261 @@
+.chat-cont {
+    position: fixed;
+    min-height: 333px;
+    right: 230px;
+    bottom: 0px;
+    display: flex;
+    z-index: 55;
+    .chat-box {
+        width: 284px;
+        display: flex;
+        flex-direction: column;
+        height: 333px;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+        border: 1px solid $main-contents-border-color;
+        margin-left: 20px;
+        border-top: none;
+        @include el(header) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+            width: calc(100% + 2px);
+            position: relative;
+            left: -1px;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            background-color: #3578e5;
+            border-bottom: 1px solid $main-contents-border-color;
+            padding: 0 6px;
+            padding-bottom: 1px;
+            @include el(full-name-cont) {
+                text-transform: capitalize;
+                @include el(full-name) {
+                    font-size: $subtitle-font-size;
+                    color: #fff;
+                    text-decoration: none;
+                    font-family: 'SF UI Text Medium';
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            @include el(btns-cont) {
+                display: flex;
+                align-items: center;
+               @include el(btn) {
+                    width: 21px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;                   
+                @include mod(video) {
+                    margin-right: 5px;
+                }
+                @include mod(close) {
+                    font-size: 13.5px;
+                    position: relative;
+                    top: 1px;
+                    margin-left: 3px;
+                }
+                i {
+                    color: #b3ccff;
+                }
+                &:hover i {
+                    color: #fff;
+                }
+               } 
+            }
+        }
+        @include el(body) {
+            flex: 1;
+            background-color: #fff;
+            padding: 0 6px;
+            overflow: auto;
+            @include el(messages-container) {
+                padding: 10px 0;
+            }
+            @include el(message) {
+                display: flex;
+                margin-bottom: 10px;
+                @include el(img-cont) {
+                    width: 28px;
+                    height: 28px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    @include el(img) {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                @include el(text-cont) {
+                    max-width: 200px;
+                    background: #f1f0f0;
+                    padding: 6px 8px 6px;
+                    white-space: pre-wrap;
+                    color: #444950;
+                    font-size: $header-item-font-size;
+                    line-height: 1.2em;
+                    border-top-right-radius: 12px;                    
+                    border-bottom-right-radius: 12px;
+                }
+                @include mod(me) {
+                    flex-direction: row-reverse;
+                    .chat-box__body__message__img-cont {
+                        margin-right: 0px;
+                        margin-left: 10px;
+                    }
+                    .chat-box__body__message__text-cont {
+                        border-top-right-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        border-top-left-radius: 12px;
+                        border-bottom-left-radius: 12px;
+                        background-color: #3578e5;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        @include el(footer) {
+            height: 50px;
+            background-color: #fff;
+            padding: 0 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1px;
+            @include el(btn) {                
+                width: 20px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include mod(more-action) {
+                    font-size: $alternate-text-size;
+                }
+                @include mod(thumbs-up) {                    
+                    font-size: $heading2-font-size;                
+                }
+                i {
+                    color: #0184ff;
+                }
+            }
+            @include el(contenteditable-cont) {
+                position: relative;
+                width: 220px;
+                min-height: 32px;
+                @include el(contenteditable) {
+                    width: 100%;
+                    resize: none;
+                    border: 1px solid #bec3c9;
+                    border-radius: 15px;
+                    max-height: 150px;
+                    padding: 9px;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    bottom: 0px;
+                    overflow: hidden;                    
+                    font-size: $header-item-font-size;
+                    left: 0px;
+                    right: 0px;
+                    box-sizing: border-box;
+                    &:focus {
+                        outline: 0px solid transparent;
+                    }
+                    &:empty:before{
+                        content: attr(placeholder);
+                        display: block; /* For Firefox */
+                        color: #90949c;
+                        cursor: text;
+                        font-size: 0.7rem;
+                      }
+                }
+            }            
+            @include el(btns-list) {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                top: 0px;
+                bottom: 0px;
+                margin: auto;
+                right: 3px;
+                @include el(item) {
+                    position: relative;
+                    right: 0px;
+                    transition-duration: 0.3s;
+                    @include el(btn) {
+                        font-size: $alternate-text-size;
+                        &:after {
+                            background-color: #282828;
+                            color: #fff;
+                            position: absolute;
+                            bottom: 27px;
+                            font-size: 0.73rem;
+                            white-space: nowrap;
+                            padding: 0.6em;
+                            border-radius: 4px;
+                            left: -5px;
+                            display: none;
+                        }
+                        &:before {
+                            content: '\f0d7';
+                            font-family: FontAwesome;
+                            font-weight: normal;
+                            font-style: normal;
+                            position: absolute;
+                            bottom: 17px;
+                            left: 8px;
+                            display: none;                            
+                        }
+                        &:hover::after {
+                            display: block;
+                        }
+                        &:hover::before {
+                            display: block;
+                        }
+                        @include mod(emoji) {
+                            font-size: 1rem;
+                            position: relative;
+                            bottom: -0.065rem;
+                           
+                            &:after {
+                                content: "Choolse an emoji";
+                            }
+                        }
+                        @include mod(photos) {
+                            &:after {
+                                content: "Add photos or videos";
+                                bottom: 25.5px;
+                            }
+                        }
+                        @include mod(sticker) {
+                            &:after {
+                                content: "Choose a sticker";
+                                bottom: 25.5px;
+                            }
+                        }
+                        @include mod(gif) {
+                            font-size: 1rem;
+                            position: relative;
+                            bottom: -0.1em;
+                            &:after {
+                                content: "Choose a gif";
+                            }
+                        }
+                        i {
+                            color: #0184ff;
+                        }
+                    }
+                    @include mod(move-right) {
+                        right: -54px;                        
+                    }
+                }
+            }            
+        }
+    }
+}
